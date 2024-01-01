@@ -1,0 +1,47 @@
+<%- include('includes/head') %>
+<%- include('includes/nav') %>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-2"></div>
+        
+        <div class="col-lg-8 my-5">
+            <h1 class="text-center display-1">Criar conta ou Entrar</h1>
+            <p class="text-center lead display-8">Faça login ou crie sua conta abaixo</p>
+
+            <div class="row">
+                <div class="col-lg">
+                    <h4>Faça seu Cadastro</h4>
+                    <p>Se você ainda não tem conta, preencha o formulário abaixo:</p>
+                    <form action="/login/register" method="post">
+                        <div class="mb-3">
+                          <label class="form-label">Seu E-mail</label>
+                          <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Sua Senha</label>
+                            <input type="password" class="form-control" name="password" aria-describedby="emailHelp">
+                          </div>
+                        <button type="submit" class="btn btn-primary">Criar Conta</button>
+                      </form>
+                </div>
+                <div class="col-lg">
+                    <h4>Faça seu Login</h4>
+                    <p>Se você já tem conta, faça o login abaixo:</p>
+                    <form action="/login/logon" method="post">
+                        <div class="mb-3">
+                          <label class="form-label">Seu E-mail</label>
+                          <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Sua Senha</label>
+                            <input type="password" class="form-control" name="password" aria-describedby="emailHelp">
+                          </div>
+                        <button type="submit" class="btn btn-primary">Entrar</button>
+                      </form>
+                </div>
+            </div>
+
+        <div class="col-lg-2"></div>
+    </div>
+</div>
+<%- include('includes/footer') %>

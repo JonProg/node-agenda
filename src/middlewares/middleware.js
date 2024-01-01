@@ -5,9 +5,10 @@ exports.middlewareGlobal = (req,res,next) => {
 }
 
 exports.checkCsrfError = (err,req,res, next) => {
-    if(err && 'EBADCSRFTOKEN' === err.code){
-        return res.status(500).send('Erro interno do servidor');
+    if(err){
+        return res.render('404');
     }
+    next();
 };
 
 exports.csrfMiddleware = (req,res,next) => {
