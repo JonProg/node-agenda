@@ -1,0 +1,12 @@
+<%-include('includes/head');%>
+    <body>
+        <h1>Title Center</h1>
+        <form action="/" method="POST">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome">
+            <button>Enviar</button>
+        </form>
+        <script src="./assets/js/bundle.js"></script>
+    </body>
+</html>
