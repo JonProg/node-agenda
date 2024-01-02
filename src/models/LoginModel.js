@@ -1,0 +1,52 @@
+const mongoose = require('mongoose');
+const validator = require('validator');
+
+const loginSchema = new mongoose.Schema({ //Fazendo o esquema no modelo
+    email:{type:String, required:true},
+    password:{type:String, required:true}
+});
+
+//Fazendo um model como base no esquema
+const LoginModel = mongoose.model('Login', loginSchema);
+
+class login{
+    constructor(body){
+        this.errors = [];
+        this.body = body;
+        this.user = null;
+    }
+
+    async register(){
+        this.valid();
+        if(this.errors.length>0) return;
+        try{
+            this.user = await LoginModel.create(this.body);
+        } catch(e){
+            console.log(e);
+        }
+        
+    }
+
+    valid(){
+        this.cleanUp();
+        if(!validator.isEmail(this.body.email)) this.errors.push('E-mail inválido');
+
+        if(this.body.password.length < 4 || this.body.password.length > 50){
+            this.errors.push('A senha precisa ter entre 4 e 50 caracteres.')
+        }
+    }
+
+    cleanUp(){
+        for(const key in this.body){
+            if(typeof this.body[key] !== 'string'){
+                this.body[key] = ''
+            }
+        }
+        this.body = {
+            email:this.body.email,
+            passwod:this.body.password
+        }
+    }
+}
+
+module.exports = login;

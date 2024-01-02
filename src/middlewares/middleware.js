@@ -1,6 +1,6 @@
 exports.middlewareGlobal = (req,res,next) => {
-    /*res.locals.variavel = valor;     
-    Bom para quando temos que enviar um dado padrão para todas as views*/
+    res.locals.errors = req.flash('errors'); 
+    res.locals.success = req.flash('success');     
     next();
 }
 
