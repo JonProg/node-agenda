@@ -17,13 +17,31 @@ class login{
         this.user = null;
     }
 
+    async login(){
+        this.valid();
+        if(this.errors.length>0) return;
+        this.user = await LoginModel.findOne({ email:this.body.email });
+
+        if(!this.user){
+            this.errors.push('Usúario inválida');
+            return;
+        }
+
+        if(!bcryptjs.compareSync(this.body.password, this.user.password)){
+            this.errors.push('Senha inválida');
+            this.user = null;
+            return;
+        }
+
+    }
+
     async register(){
         this.valid();
         await this.UserExists();
 
         if(this.errors.length>0) return;
 
-        const salt = bcryptjs.genSaltSync();
+        const salt = bcryptjs.genSaltSync()
         this.body.password = bcryptjs.hashSync(this.body.password, salt);
 
         this.user = await LoginModel.create(this.body);
