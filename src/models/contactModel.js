@@ -56,8 +56,14 @@ Contact.prototype.edit = async function(id){
 }
 
 Contact.searchContacts = async function(){
-    const contacts = await ContactModel.find().sort({createAt});
+    const contacts = await ContactModel.find().sort({createAt:-1});
     return contacts;
+}
+
+Contact.searchId = async function(id){
+    if(typeof id !== 'string') return;
+    const contact = await ContactModel.findById(id);
+    return contact;
 }
 
 Contact.delete = async function(id){
@@ -65,6 +71,5 @@ Contact.delete = async function(id){
     const contact = await ContactModel.findOneAndDelete(id);
     return contact;
 }
-
 
 module.exports = Contact;
