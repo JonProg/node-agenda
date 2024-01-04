@@ -3,10 +3,10 @@ const validator = require('validator');
 
 const ContactSchema = new mongoose.Schema({ //Fazendo o esquema no modelo
     name:{type:String, required:true},
-    surname:{type:String, default:''},
-    email:{type:String, default:''},
-    phone:{type:String, default:''},
-    createAt:{type:Date, default: Date.now()}
+    surname:{type:String, required:false, default:''},
+    email:{type:String, required:false, default:''},
+    phone:{type:String, required:false, default:''},
+    createAt:{type:Date, required:false, default: Date.now()}
 });
 
 //Fazendo um model como base no esquema
@@ -24,8 +24,8 @@ Contact.searchId = async function(id){
     return contactFound;
 }
 
-Contact.prototype.create = async function(){
-    this.valida();
+Contact.prototype.register = async function(){
+    this.valid();
     if(this.errors.length > 0) return;
     this.contact = await ContactModel.create(this.body);
 }

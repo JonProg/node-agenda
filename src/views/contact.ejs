@@ -5,30 +5,32 @@
         <div class="col-lg-2"></div>
         
         <div class="col-lg-8 my-5">
-            <h1 class="text-center display-1">Contacts</h1>
-            <p class="text-center lead display-8">Crie ou edite seu contato</p>
+            <h1 class="text-center display-1">Contact</h1>
+            <p class="text-center lead display-9">Crie ou edite seu contato</p>
 
             <%- include('includes/messages') %>
 
-            <form action="/contact/register" method="POST">
+            <form action="/contact/create" method="POST">
                 <input type="hidden" name="_csrf" value=<%= csrfToken %>>
                 <div class="mb-3">
                   <label class="form-label">Nome</label>
-                  <input value="<% contact.name %>" type="text" class="form-control" name="name">
+                  <input value="<%= contact.name %>" type="text" class="form-control border-3" name="name">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Sobrenome</label>
-                    <input value="<% contact.surname %>" type="text" class="form-control" name="surname">
+                    <input value="<%= contact.surname %>" type="text" class="form-control border-3" name="surname">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">E-mail</label>
-                    <input value="<% contact.email %>" type="email" class="form-control" name="email">
+                    <input value="<%= contact.email %>" type="email" class="form-control border-3" name="email">
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Telefone</label>
-                    <input value="<% contact.phone %>" type="tel" class="form-control" name="phone">
+                    <input value="<%= contact.phone %>" type="tel" class="form-control border-3" name="phone">
                 </div>
-                <button type="submit" class="btn btn-primary">Criar</button>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-lg w-50">Criar</button>
+                </div>
             </form>
 
         </div>

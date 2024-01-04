@@ -9,7 +9,7 @@ exports.create = async function(req,res){
         const newContact = new Contact(req.body);
         await newContact.register();
         
-        if(contact.errors.length > 0){
+        if(newContact.errors.length > 0){
             req.flash('errors',newContact.errors);
             req.session.save(()=>res.redirect('back'));
             return;
