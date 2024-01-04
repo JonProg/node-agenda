@@ -18,6 +18,12 @@ function Contact(body){
     this.contact = null
 }
 
+Contact.searchId = async function(id){
+    if(typeof id !== 'string') return;
+    const contactFound = await ContactModel.findById(id);
+    return contactFound;
+}
+
 Contact.prototype.create = async function(){
     this.valida();
     if(this.errors.length > 0) return;
