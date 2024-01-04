@@ -4,16 +4,16 @@
     <div class="row">
         <div class="col-lg-2"></div>
         
-        <div class="col-lg-8 my-5">
+        <div class="col-lg-8 my-3">
             <h1 class="text-center display-1">Contact</h1>
             <p class="text-center lead display-9">Crie ou edite seu contato</p>
 
             <%- include('includes/messages') %>
 
-            <% if (condition) { %>
-                <form action="/contact/edit/<%= contact._id %>" method="POST">
+            <% if (contact._id) { %>
+            <form action="/contact/edit/<%= contact._id %>" method="POST">
             <% }else {%>
-                <form action="/contact/create" method="POST">
+            <form action="/contact/create" method="POST">
             <% } %>
                 <input type="hidden" name="_csrf" value=<%= csrfToken %>>
                 <div class="mb-3">
@@ -33,7 +33,13 @@
                     <input value="<%= contact.phone %>" type="tel" class="form-control border-3" name="phone">
                 </div>
                 <div class="text-center">
-                    <button type="submit" class="btn btn-primary btn-lg w-50">Criar</button>
+                    <button type="submit" class="btn btn-primary btn-lg w-50 my-3">
+                        <% if (contact._id) { %>
+                            Editar
+                        <% }else {%>
+                            Criar
+                        <% } %>
+                    </button>
                 </div>
             </form>
 
