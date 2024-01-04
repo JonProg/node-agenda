@@ -14,34 +14,38 @@
                 <div class="col-lg my-5">
                     <h4>Faça seu Cadastro</h4>
                     <p>Se você ainda não tem conta, preencha o formulário abaixo:</p>
-                    <form action="/login/register" method="POST">
+                    <form class="form-register" action="/login/register" method="POST">                     
                         <input type="hidden" name="_csrf" value=<%= csrfToken %>>
                         <div class="mb-3">
                           <label class="form-label">Seu E-mail</label>
-                          <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
+                          <input type="email" class="form-control" name="email">
+                          <small style="display: none; color: red;" class="emailError">Por favor, insira um e-mail válido.</small>
                         </div>
                         <div class="mb-3">
                           <label class="form-label">Sua Senha</label>
                           <input type="password" class="form-control" name="password">
+                          <small style="display: none; color: red;" class="passwordError">Por favor, insira uma senha válida.</small>
                         </div>
                         <button type="submit" class="btn btn-primary">Criar Conta</button>
-                      </form>
+                    </form>
                 </div>
                 <div class="col-lg my-5">
                     <h4>Faça seu Login</h4>
                     <p>Se você já tem conta, faça o login abaixo:</p>
-                    <form action="/login/logon" method="post">
+                    <form class="form-login" action="/login/logon" method="POST">                
                         <input type="hidden" name="_csrf" value=<%= csrfToken %>>
                         <div class="mb-3">
                           <label class="form-label">Seu E-mail</label>
-                          <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
+                          <input type="email" class="form-control" name="email">
+                          <small style="display: none; color: red;" class="emailError">Por favor, insira um e-mail válido.</small>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Sua Senha</label>
                             <input type="password" class="form-control" name="password">
+                            <small style="display: none; color: red;" class="passwordError">Por favor, insira uma senha válida.</small>
                           </div>
                         <button type="submit" class="btn btn-primary">Entrar</button>
-                      </form>
+                    </form>
                 </div>
             </div>
 
