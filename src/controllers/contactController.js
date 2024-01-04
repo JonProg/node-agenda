@@ -1,7 +1,7 @@
 const Contact = require('../models/ContactModel')
 
 exports.index = (req,res)=>{
-    res.render('contact');
+    res.render('contact',{contact:{}});
 }
 
 exports.create = async function(req,res){
