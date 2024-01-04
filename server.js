@@ -17,7 +17,9 @@ mongoose.connect(process.env.CONNECTIONSTRING, {useNewUrlParser:true, useUnified
     })
     .catch(e => console.log(e)); 
 
-const {middlewareGlobal, checkCsrfError, csrfMiddleware} = require('./src/middlewares/middleware')
+const {middlewareGlobal,
+    checkCsrfError,
+    csrfMiddleware} = require('./src/middlewares/middleware')
 
 app.use(helmet());
 app.use(express.urlencoded({extended:true}));
