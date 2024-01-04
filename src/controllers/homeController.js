@@ -1,7 +1,8 @@
 const Contact = require('../models/ContactModel');                                                       
 
-exports.index = (req,res) => {
-    res.render('index');//Fazendo a redenrização do index.ejs
+exports.index = async (req,res) => {
+    const contacts = await new Contact.searchContacts();
+    res.render('index',{contacts});
     return;
 };
 
