@@ -68,7 +68,7 @@ Contact.searchId = async function(id){
 
 Contact.delete = async function(id){
     if(typeof id !== 'string') return;
-    const contact = await ContactModel.findOneAndDelete(id);
+    const contact = await ContactModel.findOneAndDelete({_id:id});
     return contact;
 }
 
