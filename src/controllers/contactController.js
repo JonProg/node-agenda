@@ -24,7 +24,7 @@ exports.create = async function(req,res){
     }
 };
 
-exports.editContact = async function(req,res){
+exports.contactValues = async function(req,res){
     if(!req.params.id) return res.render('404');
     const contact = await Contact.searchId(req.params.id);
 
@@ -32,3 +32,5 @@ exports.editContact = async function(req,res){
 
     res.render('contact',{contact});
 };
+
+
