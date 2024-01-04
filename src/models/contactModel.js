@@ -60,4 +60,11 @@ Contact.searchContacts = async function(){
     return contacts;
 }
 
+Contact.delete = async function(id){
+    if(typeof id !== 'string') return;
+    const contact = await ContactModel.findOneAndDelete(id);
+    return contact;
+}
+
+
 module.exports = Contact;
