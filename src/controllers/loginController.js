@@ -48,3 +48,8 @@ exports.logon = async function(req,res){
         res.render('404');
     }
 };
+
+exports.logout = function(req,res){
+    req.session.destroy();
+    res.redirect('/');
+};
