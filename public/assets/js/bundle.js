@@ -51,12 +51,15 @@ var Login = /*#__PURE__*/function () {
       if (!validator.isEmail(emailInput.value)) {
         emailError.style.display = 'block';
         error = true;
+      } else {
+        emailError.style.display = 'none';
       }
       if (passwordInput.value.length < 4 || passwordInput.value.length > 50) {
         passwordError.style.display = 'block';
         error = true;
+      } else {
+        passwordError.style.display = 'none';
       }
-      console.log(error);
       if (!error) return el.submit();
     }
   }]);
