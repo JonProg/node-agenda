@@ -4,7 +4,7 @@ const bcryptjs = require('bcryptjs')
 
 const LoginSchema = new mongoose.Schema({ //Fazendo o esquema no modelo
     email:{type:String, required:true},
-    password:{type:String, required:true}
+    password:{type:String, required:true},
 });
 
 //Fazendo um model como base no esquema

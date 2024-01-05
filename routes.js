@@ -16,11 +16,11 @@ route.post('/login/logon',loginController.logon);
 route.get('/login/logout',loginController.logout);
 
 //routes contact
-route.get('/contact', loginRequired, contactController.index);
-route.post('/contact/create', loginRequired, contactController.create);
-route.get('/contact/:id', loginRequired, contactController.contactValues);
-route.post('/contact/edit/:id', loginRequired, contactController.editContact);
-route.get('/contact/delete/:id', loginRequired, contactController.delete);
+route.get('/contact',loginRequired, contactController.index);
+route.post('/contact/create',loginRequired, contactController.create);
+route.get('/contact/:id',loginRequired, contactController.contactValues);
+route.post('/contact/edit/:id',loginRequired, contactController.editContact);
+route.get('/contact/delete/:id',loginRequired, contactController.delete);
 
 
 module.exports = route;

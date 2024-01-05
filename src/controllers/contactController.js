@@ -7,7 +7,7 @@ exports.index = (req,res)=>{
 exports.create = async function(req,res){
     try{
         const newContact = new Contact(req.body);
-        await newContact.register();
+        await newContact.register(req.session.user._id);
         
         if(newContact.errors.length > 0){
             req.flash('errors',newContact.errors);

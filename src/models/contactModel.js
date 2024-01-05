@@ -6,7 +6,8 @@ const ContactSchema = new mongoose.Schema({ //Fazendo o esquema no modelo
     surname:{type:String, required:false, default:''},
     email:{type:String, required:false, default:''},
     phone:{type:String, required:false, default:''},
-    createAt:{type:Date, required:false, default: Date.now()}
+    createAt:{type:Date, required:false, default: Date.now()},
+    createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'Login', required:true}
 });
 
 //Fazendo um model como base no esquema
@@ -18,8 +19,11 @@ function Contact(body){
     this.contact = null
 }
 
-Contact.prototype.register = async function(){
+Contact.prototype.register = async function(userId){
+    if(typeof userId !== 'string') return;
+    console.log(userId);
     this.valid();
+    this.body.createdBy = userId;
     if(this.errors.length > 0) return;
     this.contact = await ContactModel.create(this.body);
 }
@@ -45,7 +49,7 @@ Contact.prototype.cleanUp = function(){
         surname:this.body.surname,
         email:this.body.email,
         phone:this.body.phone
-    }
+    };
 }
 
 Contact.prototype.edit = async function(id){
@@ -55,8 +59,9 @@ Contact.prototype.edit = async function(id){
     this.contact = await ContactModel.findByIdAndUpdate(id, this.body, {new:true});
 }
 
-Contact.searchContacts = async function(){
-    const contacts = await ContactModel.find().sort({createAt:-1});
+Contact.searchContacts = async function(userId){
+    if(typeof userId !== 'string') return;
+    const contacts = await ContactModel.find({ createdBy: userId }).sort({ createAt: -1 }); 
     return contacts;
 }
 
