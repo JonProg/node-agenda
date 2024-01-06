@@ -21,7 +21,6 @@ function Contact(body){
 
 Contact.prototype.register = async function(userId){
     if(typeof userId !== 'string') return;
-    console.log(userId);
     this.valid();
     this.body.createdBy = userId;
     if(this.errors.length > 0) return;
