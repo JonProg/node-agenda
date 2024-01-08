@@ -19,3 +19,5 @@
 Durante o curso "JavaScript e TypeScript do Básico ao Avançado" ministrado pelo professor Otávio Miranda, desenvolvi um projeto de agenda de contatos utilizando Node.js,Express e MongoDB como banco de dados NoSql. 
 
 As modificações realizadas no back-end visaram garantir a correta associação dos contatos a cada usuário logado, evitando assim que os contatos de um usuário aparecessem na lista de contatos de outro. Além disso, realizei ajustes nos textos de algumas páginas para aprimorar a experiência do usuário.
+
+Um projeto interessante para fixar alguns conceitos sobre Express, Node e MongoDB.
