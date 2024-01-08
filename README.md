@@ -1,5 +1,5 @@
 # node-agenda
 
-[![agenda-n.gif](https://i.postimg.cc/BZLW0z3c/agenda-n.gif)](https://postimg.cc/8sSXdtjj)
+[![agenda.gif](https://i.postimg.cc/T1bCsW5Z/agenda.gif)](https://postimg.cc/N2g69F44)
 
 Um projeto desenvolvido no curso de "javascript e typescript do básico ao avançado" feito pelo professor Otávio Miranda.
