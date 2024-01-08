@@ -1,10 +1,10 @@
 # node-agenda
 
-<p align="center">
+<div align="center">
 
 [![agenda.gif](https://i.postimg.cc/T1bCsW5Z/agenda.gif)](https://postimg.cc/N2g69F44)
 
-</p>
+</div>
 
 <div align="center">
 
@@ -13,6 +13,8 @@
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 
 </div>
+
+#
 
 Durante o curso "JavaScript e TypeScript do Básico ao Avançado" ministrado pelo professor Otávio Miranda, desenvolvi um projeto de agenda de contatos utilizando Node.js,Express e MongoDB como banco de dados NoSql. 
 
